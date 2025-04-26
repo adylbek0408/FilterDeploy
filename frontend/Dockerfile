@@ -1,27 +1,14 @@
-FROM node:18-alpine as build
-
-WORKDIR /app
-
-# Копируем package.json и package-lock.json
-COPY frontend/package*.json ./
-
-# Устанавливаем зависимости
-RUN npm install
-
-# Копируем исходный код
-COPY frontend/ .
-
-# Собираем приложение
-RUN npm run build
-
-# Этап production
+# frontend/Dockerfile
 FROM nginx:alpine
 
-# Копируем собранные файлы
-COPY --from=build /app/dist /usr/share/nginx/html
+# Создаем директорию
+RUN mkdir -p /usr/share/nginx/html
 
-# Копируем конфигурацию nginx для SPA
-COPY nginx/frontend.conf /etc/nginx/conf.d/default.conf
+# Копируем все файлы фронтенда
+COPY . /usr/share/nginx/html/
+
+# Копируем конфигурацию nginx
+COPY ../nginx/frontend.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 

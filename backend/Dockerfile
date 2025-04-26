@@ -1,3 +1,4 @@
+# backend/Dockerfile
 FROM python:3.10-alpine
 
 # Устанавливаем переменные окружения
@@ -20,12 +21,12 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
-# Копируем и устанавливаем зависимости
-COPY backend/requirements.txt .
+# Копируем и устанавливаем зависимости (БЕЗ префикса backend/)
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Копируем проект
-COPY backend/ .
+COPY . .
 
 # Создаём директории для статики и медиа
 RUN mkdir -p /app/static /app/media && chmod -R 755 /app/static /app/media

@@ -5,31 +5,20 @@ services:
   nginx:
     image: nginx:alpine
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./frontend:/usr/share/nginx/html  # Монтируем папку frontend напрямую
       - static_volume:/app/static
       - media_volume:/app/media
     depends_on:
-      - frontend
       - backend
-
-  # Frontend service
-  frontend:
-    build:
-      context: .
-      dockerfile: frontend/Dockerfile
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=production
 
   # Backend Django service
   backend:
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     env_file: .env
     volumes:
       - ./backend:/app
@@ -43,8 +32,8 @@ services:
   # Bot service
   bot:
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     env_file: .env
     volumes:
       - ./backend:/app
