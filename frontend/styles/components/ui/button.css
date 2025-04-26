@@ -1,0 +1,38 @@
+.btn {
+  padding: var(--btn-padding-y, 16px) var(--btn-padding-x, 22px);
+  border-radius: var(--btn-rounded, 16px);
+  font-size: 18px;
+  line-height: var(--btn-fw, 26px);
+  font-weight: 500;
+  text-align: center;
+  text-wrap: nowrap;
+  transition: all 0.25s;
+  will-change: transform;
+}
+
+.btn-solid.btn-secondary {
+  color: var(--text-secondary);
+  background: var(--secondary);
+}
+
+.btn-solid.btn-white {
+  color: var(--secondary);
+  background: var(--white);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+@media screen and (max-width: 1024px) {
+  .btn {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #header .btn {
+    display: none;
+  }
+}

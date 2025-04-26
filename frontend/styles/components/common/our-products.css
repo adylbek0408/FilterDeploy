@@ -1,0 +1,42 @@
+#our-products h2 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 125%;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  color: var(--text-mint);
+}
+
+#our-products .our-product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+#our-products .our-product-list figure {
+  max-width: 486px;
+  max-height: 699px;
+  transition: all 0.25s;
+}
+
+#our-products .our-product-list figure:hover {
+  transform: scale(1.025);
+}
+
+@media screen and (max-width: 768px) {
+  #our-products h2 {
+	font-size: 28px;
+	margin-bottom: 20px;
+  }
+
+  #our-products .our-product-list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+
+  #our-products .our-product-list figure {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

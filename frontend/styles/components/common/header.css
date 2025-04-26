@@ -1,0 +1,151 @@
+#header {
+  background: var(--white);
+}
+
+#header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+#header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+#header nav ul li a {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  color: var(--secondary);
+  padding: 3px;
+  transition: 0.3s ease all;
+  border-bottom: 1px solid #fff;
+}
+
+#header nav ul li a:hover {
+  border-bottom: 1px solid #0093d3;
+  transition: 0.3s ease all;
+}
+
+#header .logo {
+  width: 100px;
+  height: 100px;
+}
+
+#header .logo svg {
+  fill: var(--pure-white);
+}
+
+#header .end .actions .try svg {
+  stroke: var(--pure-white);
+}
+
+.burger {
+  display: none;
+  position: relative;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  background: var(--secondary);
+  border-radius: 8px;
+  outline: none;
+}
+
+.burger-line {
+  position: absolute;
+  width: 13px;
+  height: 1.5px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.burger-line:nth-child(1) {
+  top: 14px;
+}
+
+.burger-line:nth-child(2) {
+  top: 18px;
+}
+
+.burger-line:nth-child(3) {
+  top: 22px;
+}
+
+.burger.active .burger-line:nth-child(1) {
+  top: 50%;
+  width: 18px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.burger.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active .burger-line:nth-child(3) {
+  top: 50%;
+  width: 18px;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+@media screen and (max-width: 1110px) {
+  #header nav ul {
+    gap: 17px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #header .logo {
+    width: 75px;
+  }
+
+  #header nav ul {
+    gap: 0px;
+  }
+
+  #header nav ul li a {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #header .container {
+    height: 56px;
+  }
+  #header .logo {
+    width: 36px;
+  }
+  #header nav ul {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+
+    border: 0.5px solid #e6e6e6;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px 0px #3741510d;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 290px;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+  #header nav .ul-links.active {
+    right: 0%;
+    transition: all 0.3s ease;
+  }
+
+  .burger {
+    display: flex;
+  }
+}

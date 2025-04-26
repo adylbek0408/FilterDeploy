@@ -1,0 +1,234 @@
+/* Impact Of low-quality water */
+.content-mobile {
+  display: none;
+}
+#ilqw h2 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 125%;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--text-mint);
+  margin-bottom: 40px;
+}
+
+#ilqw .content {
+  background: var(--white);
+  border-radius: 40px;
+  padding: 41px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+#ilqw .ilqw-item {
+  display: flex;
+  align-items: center;
+}
+
+#ilqw .ilqw-cn {
+  background: var(--secondary);
+  display: flex;
+  align-items: center;
+  gap: 90px;
+}
+
+#ilqw .ilqw-cn figure {
+  height: 100%;
+}
+
+#ilqw .ilqw-item.pos-true {
+  flex-direction: row-reverse;
+}
+
+/* #ilqw .ilqw-cn div {
+	padding: 40px 0;
+} */
+
+#ilqw .ilqw-item.ii-6 figure img {
+  min-height: 452px;
+  max-height: 452px;
+  min-width: 452px;
+  max-width: 452px;
+}
+
+#ilqw .ilqw-cn div * {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+#ilqw .div-pad{
+  padding: 50px 0;
+}
+
+#ilqw .ilqw-item.pos-true .ilqw-cn {
+  padding-right: 90px;
+  border-top-left-radius: 300px;
+  border-bottom-left-radius: 300px;
+}
+
+#ilqw .ilqw-item:is(.ii-2) .ilqw-cn {
+  flex-direction: row-reverse;
+  padding-left: 90px;
+  padding-right: 0;
+}
+
+#ilqw .ilqw-item:not(.pos-true) .ilqw-cn {
+  padding: 0 90px;
+  border-top-right-radius: 300px;
+  border-bottom-right-radius: 300px;
+}
+
+#ilqw .ilqw-cn * {
+  color: var(--white);
+}
+
+#ilqw .ilqw-index {
+  color: var(--secondary);
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 130px;
+  font-weight: 900;
+}
+
+#ilqw .ilqw-index:is(.bg-true) {
+  color: var(--white);
+  background: var(--secondary);
+}
+
+#ilqw .ilqw-index.ilqw-i-1 {
+  margin: 0 103px;
+}
+
+#ilqw .ilqw-index.ilqw-i-1,
+#ilqw .ilqw-index.ilqw-i-3,
+#ilqw .ilqw-index.ilqw-i-5 {
+  min-width: 214px;
+  min-height: 214px;
+  max-width: 214px;
+  max-height: 214px;
+}
+
+#ilqw .ilqw-index.ilqw-i-2 {
+  margin: 0 120px;
+}
+
+#ilqw .ilqw-index.ilqw-i-3 {
+  margin: 0 102px;
+}
+
+#ilqw .ilqw-index.ilqw-i-4 {
+  margin: 0 144px;
+}
+
+#ilqw .ilqw-index.ilqw-i-5 {
+  margin: 0 156px;
+}
+
+#ilqw .ilqw-index.ilqw-i-6 {
+  margin: 0 56px;
+}
+
+#ilqw .ilqw-index.ilqw-i-7 {
+  margin: 0 86px;
+}
+
+@media screen and (max-width: 1400px) {
+  #ilqw .content {
+    display: none;
+  }
+
+  .content-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content-mobile-item {
+    display: flex;
+    flex-direction: column;
+    background: #0089c4;
+    padding: 24px 20px;
+    border-radius: 20px;
+	gap: 15px;
+	position: relative;
+  }
+
+  .content-mobile-upper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .item-number {
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .item-number span {
+    font-size: 45px;
+    font-weight: 900;
+    line-height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0089c4;
+  }
+
+  .item-title {
+    font-size: 16px;
+    line-height: 20px;
+	color: white;
+	font-weight: 400;
+  }
+
+  .item-desc {
+    font-size: 14px;
+    line-height: 20px;
+	color: white;
+	font-weight: 400;
+	padding-right: 120px;
+  }
+
+
+
+  .content-mobile-lower img{
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .content-mobile-lower img{
+	display: inline-block;
+	float: right;
+	width: 60px;
+	height: 60px;
+	position: relative;
+	top: unset;
+	right: unset;
+	transform: unset;
+  }
+  .item-desc {
+	padding-right: 0;
+  }
+
+  #ilqw h2{
+    font-size: 24px;
+  }
+}

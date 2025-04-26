@@ -1,0 +1,206 @@
+#about {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+#about .first-el {
+  padding: 40px 110px;
+  padding-bottom: 0;
+}
+
+#about .first-el,
+#about .second-el {
+  background: var(--white);
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  justify-content: space-between;
+  border-radius: 40px;
+}
+#about .first-el {
+  align-items: center;
+}
+
+#about .content {
+  max-width: 683.5px;
+}
+
+#about .content .info {
+  max-width: 484px;
+}
+
+#about .content h1 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 100%;
+  text-transform: uppercase;
+  margin-bottom: 41px;
+}
+
+#about .content h1 span {
+  color: var(--secondary);
+}
+
+#about .content .info p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  color: var(--text-mint);
+  margin-bottom: 41px;
+}
+
+#about .contact-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+#about .contact-list li a {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#about .consultation {
+  position: relative;
+  height: 100%;
+}
+
+#about .consultation figure {
+  width: 371px;
+  height: 392px;
+}
+
+#about .consultation .form {
+  transform: translateY(-94px);
+}
+
+#about .container:not(.first-el) {
+  gap: 79px;
+}
+
+#about .content2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 100px 42px;
+}
+
+#about .content2 h2 {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 32px;
+  color: var(--text-mint);
+}
+
+#about .content2 .info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#about .content2 .info p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+#about .about-right {
+  min-width: 50%;
+}
+
+@media screen and (max-width: 1024px) {
+  #about .content h1 {
+    font-size: 28px;
+  }
+
+  #about .content .info p {
+    font-size: 14px;
+  }
+
+  #about .contact-list li a {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #about {
+    gap: 40px;
+  }
+
+  #about .first-el {
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 30px;
+    gap: 0;
+  }
+
+  #about .content h1,
+  #about .content .info p {
+    padding: 8px 0;
+    margin-bottom: 0;
+  }
+
+  #about .contact-list {
+    gap: 8px;
+  }
+
+  #about .content2 {
+    padding: 0 30px 30px;
+  }
+
+  #about .content2 h2 {
+    margin-bottom: 4px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  #about .content2 .info p {
+    font-size: 14px;
+  }
+
+  #about .second-el {
+    flex-direction: column;
+    border-radius: 8px;
+  }
+
+  #about .about-right {
+    order: -1;
+    padding: 30px;
+    padding-bottom: 0;
+  }
+
+  #about .about-right img {
+    border-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  #about .consultation figure {
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+  }
+
+  #about .consultation .form {
+    max-width: 100%;
+    width: 100%;
+    padding: 28px;
+  }
+
+  #about .consultation {
+    height: 450px;
+  }
+}

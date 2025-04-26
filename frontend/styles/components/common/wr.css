@@ -1,0 +1,122 @@
+/* Water Role */
+
+#wr h2 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 125%;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--text-mint);
+  margin-bottom: 40px;
+}
+
+.wr-banner {
+  display: none;
+}
+
+#wr .content p {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  text-align: center;
+}
+
+#wr .content p span {
+  font-weight: 600;
+  color: var(--text-mint);
+}
+
+#wr .items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+#wr .items .item {
+  display: flex;
+  align-items: center;
+}
+
+#wr .item figure {
+  max-width: 186px;
+  max-height: 186px;
+}
+
+#wr .item .col {
+  max-width: 165px;
+}
+
+#wr .item .col span {
+  color: var(--secondary);
+  font-weight: 900;
+  font-size: 50px;
+}
+
+#wr .item .col hr {
+  margin: 10px 0;
+  background: var(--soft);
+  border: none;
+  width: 100%;
+  height: 1px;
+}
+
+#wr .item .col p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  color: var(--text-mint);
+}
+
+@media screen and (max-width: 768px) {
+  .wr-banner {
+    display: block;
+    margin-top: 30px;
+	position: relative;
+	padding-bottom: 30px;
+  }
+
+  #wr .items {
+    display: none;
+  }
+  #wr .swiper-pagination-bullet-active {
+    --swiper-pagination-bullet-width: 25px;
+    border-radius: 10px;
+  }
+
+  #wr .swiper-slide {
+    width: 66%;
+    flex-shrink: 0;
+  }
+
+  #wr .swiper-pagination span {
+    background: #0093d3;
+    transition: all 0.25s;
+  }
+
+  #wr h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    line-height: 100%;
+  }
+
+  #wr .content p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  #wr .item {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px 20px;
+  }
+
+  #wr .item .col span {
+    font-size: 30px;
+  }
+  #wr .item .col p {
+    font-size: 14px;
+  }
+}
