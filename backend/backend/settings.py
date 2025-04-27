@@ -28,17 +28,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework',
+    'rest_framework'
+    'corsheaders',
     'drf_yasg',
     'application',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -209,7 +211,13 @@ JAZZMIN_UI_TWEAKS = {
     "actions_sticky_top": True,
 }
 
-CORS_ALLOW_ALL_ORIGINS = False
+# CORS - разрешить все
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+# Отключить CSRF полностью (временно!)
+CSRF_TRUSTED_ORIGINS = ['*']
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
@@ -227,7 +235,6 @@ CORS_ALLOW_HEADERS = [
 ]
 
 CORS_EXPOSE_HEADERS = ['Content-Length', 'X-CSRFToken']
-CORS_ALLOW_CREDENTIALS = True
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
@@ -240,4 +247,9 @@ SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False,
     'JSON_EDITOR': True,
 }
+
+SECURE_SSL_REDIRECT = False
+SECURE_PROXY_SSL_HEADER = None
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
