@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['83.147.245.72', 'localhost', '127.0.0.1', '*']
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -211,20 +211,23 @@ JAZZMIN_UI_TWEAKS = {
     "actions_sticky_top": True,
 }
 
-# CORS - разрешить все
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-
-# Отключить CSRF полностью (временно!)
-CSRF_TRUSTED_ORIGINS = ['*']
-
+CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
     "http://83.147.245.72",
-    "http://127.0.0.1:5500",
-
+    "http://83.147.245.72:80",
+    "http://localhost:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8000",
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://83.147.245.72",
+    "http://83.147.245.72:80",
+    "http://localhost:3000",
+    "http://localhost:8000",
+]
+
 
 CORS_ALLOW_METHODS = [
     'DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT',
@@ -253,4 +256,10 @@ SECURE_SSL_REDIRECT = False
 SECURE_PROXY_SSL_HEADER = None
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
+
+CSRF_COOKIE_NAME = 'csrftoken'
+CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
+
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SAMESITE = 'Lax'
 

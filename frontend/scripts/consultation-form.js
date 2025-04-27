@@ -1,22 +1,37 @@
 import { API_URL } from "./config.js";
 
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
 export function initConsultationForms() {
   const ConsultationForms = document.querySelectorAll(".consultation-form");
 
   ConsultationForms.forEach((form, i) => {
     form.innerHTML += `
-			<div class="input-field">
-				<label for="yname-${i}">Имя*</label>
-				<input type="text" id="yname-${i}" placeholder="Ваше имя" />
-			</div>
-			<div class="input-field">
-				<label for="phone-${i}">Номер телефона*</label>
-				<input type="text" id="phone-${i}" placeholder="+996 555 555 555" />
-			</div>
-			<button type="button" class="btn btn-solid btn-secondary">
-				Получить консультацию
-			</button>
-		`;
+      <div class="input-field">
+        <label for="yname-${i}">Имя*</label>
+        <input type="text" id="yname-${i}" placeholder="Ваше имя" />
+      </div>
+      <div class="input-field">
+        <label for="phone-${i}">Номер телефона*</label>
+        <input type="text" id="phone-${i}" placeholder="+996 555 555 555" />
+      </div>
+      <button type="button" class="btn btn-solid btn-secondary">
+        Получить консультацию
+      </button>
+    `;
 
     const button = form.querySelector("button");
     button.addEventListener("click", async () => {
@@ -32,23 +47,29 @@ export function initConsultationForms() {
         button.disabled = true;
         button.textContent = "Отправка...";
 
+        const csrftoken = getCookie('csrftoken');
+
         const response = await fetch(API_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "X-CSRFToken": csrftoken
           },
+          credentials: 'same-origin',
           body: JSON.stringify({ name, phone }),
         });
 
         if (!response.ok) {
-          throw new Error("Ошибка отправки данных");
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Ошибка отправки данных");
         }
 
         alert("Данные отправлены успешно!");
-        form.reset();
+        form.querySelector(`#yname-${i}`).value = '';
+        form.querySelector(`#phone-${i}`).value = '';
       } catch (error) {
         console.error(error);
-        alert("Произошла ошибка, попробуйте позже.");
+        alert(error.message || "Произошла ошибка, попробуйте позже.");
       } finally {
         button.disabled = false;
         button.textContent = "Получить консультацию";
