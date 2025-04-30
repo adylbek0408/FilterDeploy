@@ -1,22 +1,28 @@
 import { API_URL } from "./config.js";
 
-function getCookie(name) {
-  let cookieValue = null;
-  if (document.cookie && document.cookie !== '') {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim();
-      if (cookie.substring(0, name.length + 1) === (name + '=')) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
-      }
-    }
-  }
-  return cookieValue;
-}
-
 export function initConsultationForms() {
   const ConsultationForms = document.querySelectorAll(".consultation-form");
+
+  let notificationContainer = document.querySelector(".notification-container");
+  if (!notificationContainer) {
+    notificationContainer = document.createElement("div");
+    notificationContainer.className = "notification-container";
+    document.body.appendChild(notificationContainer);
+  }
+
+  function showNotification(message, type = "success") {
+    const notification = document.createElement("div");
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    notificationContainer.appendChild(notification);
+
+    setTimeout(() => {
+      notification.classList.add("hide");
+      notification.addEventListener("transitionend", () => {
+        notification.remove();
+      });
+    }, 3000);
+  }
 
   ConsultationForms.forEach((form, i) => {
     form.innerHTML += `
@@ -35,44 +41,42 @@ export function initConsultationForms() {
 
     const button = form.querySelector("button");
     button.addEventListener("click", async () => {
-      const name = form.querySelector(`#yname-${i}`).value.trim();
-      const phone = form.querySelector(`#phone-${i}`).value.trim();
+      const nameInput = form.querySelector(`#yname-${i}`);
+      const phoneInput = form.querySelector(`#phone-${i}`);
+      const name = nameInput.value.trim();
+      const phone = phoneInput.value.trim();
 
-      if (!name || !phone) {
-        alert("Заполните все поля!");
+      if (!name) {
+        showNotification('Заполните поле "Имя"', "error");
+        return;
+      }
+
+      if (!phone) {
+        showNotification('Заполните поле "Номер телефона"', "error");
         return;
       }
 
       try {
         button.disabled = true;
-        button.textContent = "Отправка...";
-
-        const csrftoken = getCookie('csrftoken');
 
         const response = await fetch(API_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "X-CSRFToken": csrftoken
           },
-          credentials: 'same-origin',
           body: JSON.stringify({ name, phone }),
         });
 
         if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || "Ошибка отправки данных");
+          throw new Error("Ошибка отправки данных");
         }
 
-        alert("Данные отправлены успешно!");
-        form.querySelector(`#yname-${i}`).value = '';
-        form.querySelector(`#phone-${i}`).value = '';
+        showNotification("Ваша заявка отправлена. С вами свяжутся!", "success");
       } catch (error) {
         console.error(error);
-        alert(error.message || "Произошла ошибка, попробуйте позже.");
+        showNotification("Упс...что-то пошло не так", "error");
       } finally {
         button.disabled = false;
-        button.textContent = "Получить консультацию";
       }
     });
   });

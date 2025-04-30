@@ -21,7 +21,7 @@ export function initTrustUsComments() {
     el.innerHTML = `
             <div class="cm-top">
                 <figure>
-                    <img src="/assets/images/user/user${i + 1}.png" alt="User ${
+                    <img src="./assets/images/user/user${i + 1}.png" alt="User ${
       i + 1
     }" />
                 </figure>

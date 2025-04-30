@@ -115,8 +115,13 @@
   min-height: 1119px;
 }
 
-.wch-v2 {
+.wch-v2,
+.wch-item.wch-tree-2 {
   min-height: 1012px;
+}
+
+.wch-v5 .wch-tree-3{
+  height: 50%;
 }
 
 .wch-v3 {
@@ -143,6 +148,10 @@
   
   .wch-v2 {
     min-height: 1012px;
+  }
+
+  .wch-item.wch-tree-2 {
+    min-height: auto;
   }
   
   .wch-v3 {

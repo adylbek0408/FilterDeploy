@@ -10,7 +10,19 @@
 #footer .logo {
   width: 172px;
   height: 172px;
-  margin: auto 0;
+  align-self: center;
+  position: relative;
+}
+#footer .logo span {
+  width: 80%;
+  height: auto;
+}
+
+#footer .logo svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #footer .col {
@@ -57,7 +69,21 @@
     width: 92px;
     height: 92px;
     margin: auto 0;
+    align-self: unset;
   }
+
+  #footer .logo span {
+    width: 100%;
+    height: auto;
+  }
+
+  #footer .logo svg {
+    position: relative;
+    transform: unset;
+    top: unset;
+    left: unset;
+  }
+
   #footer .logo .icon {
     display: block;
   }
@@ -77,8 +103,8 @@
     font-size: 14px;
   }
 
-  #footer .col.menu{
-	order: 1;
+  #footer .col.menu {
+    order: 1;
   }
 
   #footer .col.contact ul li a {

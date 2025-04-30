@@ -1,6 +1,6 @@
 const GetIcon = async name => {
 	let svg = ``;
-	await fetch(`/assets/icons/${name}.svg`)
+	await fetch(`./assets/icons/${name}.svg`)
 		.then(r => r.text())
 		.then(r => {
 			svg = r;

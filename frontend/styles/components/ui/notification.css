@@ -1,0 +1,29 @@
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+  }
+  
+  .notification {
+    padding: 12px 20px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    background-color: var(--secondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all ease 0.3s;
+  }
+  
+  .notification.error {
+    background-color: #f44336;
+  }
+  
+  .notification.hide {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  

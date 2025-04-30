@@ -19,7 +19,7 @@ export function initHero() {
 				<a href="https://wa.me/0706004004" target="_blank" class="btn btn-solid btn-white" data-swiper-parallax="-50">Связаться с нами</a>
 			</div>
 			<figure>
-				<img src="/assets/images/hero/image${index + 1}.png" alt="Hero Image - I-${
+				<img src="./assets/images/hero/image${index + 1}.png" alt="Hero Image - I-${
 			index + 1
 		}" />
 			</figure>

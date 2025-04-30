@@ -24,8 +24,14 @@
 }
 
 @media screen and (max-width: 768px) {
+  .consultation-form{
+    padding: 28px;
+  }
   .consultation-form .input-field label {
     font-size: 14px;
+  }
+  .consultation-form .btn {
+    font-size: 16px;
   }
 }
 

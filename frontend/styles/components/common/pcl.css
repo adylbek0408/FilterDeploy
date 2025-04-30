@@ -150,10 +150,15 @@
   #pcl .items .item .icon {
     width: 64px;
     height: 64px;
+    transform: translateX(0px);
   }
 
   #pcl .row {
     width: 100%;
+  }
+
+  #pcl .items .item {
+    background: var(--tertiary);
   }
 
   #pcl .items .item div {
