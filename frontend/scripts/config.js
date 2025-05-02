@@ -1,1 +1,1 @@
-export const API_URL = 'http://83.147.245.72/api/orders/';
+export const API_URL = 'https://filter.kg/api/orders/';
