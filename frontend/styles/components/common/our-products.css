@@ -20,6 +20,10 @@
   transition: all 0.25s;
 }
 
+#our-products .our-product-list figure img{
+  border-radius: 20px;
+}
+
 #our-products .our-product-list figure:hover {
   transform: scale(1.025);
 }

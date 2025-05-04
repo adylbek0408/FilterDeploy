@@ -72,6 +72,8 @@ export function initConsultationForms() {
         }
 
         showNotification("Ваша заявка отправлена. С вами свяжутся!", "success");
+        nameInput.value = "";
+        phoneInput.value = "";
       } catch (error) {
         console.error(error);
         showNotification("Упс...что-то пошло не так", "error");
